@@ -384,7 +384,7 @@ var flg = new Array();
 var tabs=["null","web","images","videos","music","ebooks","torrents","shared","news"]
 //the search types/tabs -- first one is set null to nullify the first index - 0
 var filters=["null","blogs","imghosts","morevids","funnyvids","mp3","guitartabs","lyrics","pdf","doc","ppt","mediafire","nepali","technology","audiobooks","screencasts","newssites","newsbydate","headlines","world","business","nations","science","elections","politics","entertainment","sports","health",
-"toprated","mostviewed","featured","latestvids"
+"toprated","mostviewed","featured","latestvids","multiupload"
 ]
 //array for results;
 var rez;
