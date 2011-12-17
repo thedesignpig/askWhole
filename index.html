@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <title>askWhole</title>
+        <link rel="search" type="application/opensearchdescription+xml" title="AskWhole Search" href="http://askwhole.com/askwhole.src">
+        <link rel="stylesheet" type="text/css" href="base.css" media="screen">
+        <script type="text/javascript" src="http://www.google.com/jsapi"> </script>
+        <script type="text/javascript" src="base.js"> </script>
+    </head>
+    <body style="background-color:white">
+        <div id="pane" style="display:none;">
+            <div id="paneContent">
+                <span id="paneTitle">
+                    Pane Title
+                </span>
+                <a id="closeButton" href="javascript:void(0);" onclick="closePane();">x</a>
+                <div id="paneBody">
+                    Pane Content
+                </div>
+            </div>
+        </div>
+        <div id="paneBackground" style="display:none;"></div>
+        <div id="wrapper">
+            <div id="srcdiv">
+                <form  id="srch" name="srch" onSubmit="javascript:loadTab(0);return false;" action="">
+                    <input type="text" name="s" onfocus="window.inTextBox = true;"  onclick="if (this.value=='put search terms here') {this.value='';this.style.color='#222222';}" onblur="window.inTextBox = false;" onKeyUp="triggerSearch(event);">
+
+                    <input id="sm" type="submit" name="submit1" value="Search!" />
+
+                </form>
+                <span id="no"></span>
+                <span id="test"></span>
+            </div>
+            <br>
+
+            <div id="rite">
+                
+                <div id="pagination">
+                <span id="previous" style="display:none;"><a href='javascript:previous();'>Previous</a></span>
+                <span id="pagination_info"></span>
+                <span id="next" style="display:none;"><a href='javascript:next();'>Next</a></span>
+                </div>
+                
+                <div id="filters">
+                    <div id="tab1_filters" class="filters">
+                        <ul>
+                            <li class="filter1"><a href="javascript:filterClicked(1);">Blogs</a></li>
+                            <li class="filter13"><a href="javascript:filterClicked(13);">Technology</a></li>
+                            <!---
+                            <li class="filter12"><a href="javascript:filterClicked(12);">Nepali Only</a></li>
+                            -->
+                        </ul>
+                    </div>
+
+                    <div id="tab2_filters" class="filters">
+                        <ul>
+                            <li class="filter2"><a href="javascript:filterClicked(2);">Image Host Sites</a></li>
+                        </ul>
+                        <form name="img_options" action="javascript:void(0);">
+                            <select name="IMAGESIZE" onchange="triggerSearch();">
+                                <option selected value="">Any size</option>
+                                <option value="SMALL">Small</option>
+                                <option value="MEDIUM">Medium</option>
+                                <option value="LARGE">Large</option>
+                                <option value="EXTRA_LARGE">Extra Large</option>
+                            </select>
+
+                            <select name="RIGHTS" onchange="triggerSearch();">
+                                <option selected value="">Any rights</option>
+                                <option value="REUSE">Reusable</option>
+                                <option value="COMMERCIAL_REUSE">Commercially Reusable</option>
+                                <option value="MODIFICATION">Modifiable</option>
+                                <option value="COMMERCIAL_MODIFICATION">Commercially Modifiable</option>
+                            </select>
+
+                            <select name="IMAGETYPE" onchange="triggerSearch();">
+                                <option selected value="">Any type</option>
+                                <option value="FACES">Faces</option>
+                                <option value="PHOTO">Photo</option>
+                                <option value="CLIPART">Clip Art</option>
+                                <option value="LINEART">Line Drawing</option>
+                            </select>
+
+                            <select name="FILETYPE" onchange="triggerSearch();">
+                                <option selected value="">Any file type</option>
+                                <option value="JPG">JPG</option>
+                                <option value="PNG">PNG</option>
+                                <option value="GIF">GIF</option>
+                                <option value="BMP">BMP</option>
+                            </select>
+
+                            <select name="COLORFILTER" onchange="triggerSearch();">
+                                <option selected value="">Any color filter</option>
+                                <option value="BLACK">Black</option>
+                                <option value="BLUE">Blue</option>
+                                <option value="BROWN">Brown</option>
+                                <option value="GRAY">Gray</option>
+                                <option value="GREEN">Green</option>
+                                <option value="ORANGE">Orange</option>
+                                <option value="PINK">Pink</option>
+                                <option value="PURPLE">Purple</option>
+                                <option value="RED">Red</option>
+                                <option value="TEAL">Teal</option>
+                                <option value="WHITE">White</option>
+                                <option value="YELLOW">Yellow</option>
+                            </select>
+
+                            <select name="COLORIZATION" onchange="triggerSearch();">
+                                <option selected value="">Any coloration</option>
+                                <option value="COLOR">Color</option>
+                                <option value="GRAYSCALE">Grayscale</option>
+                            </select>
+
+                            <select name="SAFESEARCH" onchange="triggerSearch();">
+                                <option selected value="">Moderate Safe Search</option>
+                                <option value="STRICT">Strict Safe Search</option>
+                                <option value="OFF">Safe Search Off</option>
+                            </select>
+
+                        </form>
+
+                    </div>
+
+                    <div id="tab3_filters" class="filters">
+                        <ul>
+                            <li class="filter3"><a href="javascript:filterClicked(3);">More Video Site</a></li>
+                            <li class="filter4"><a href="javascript:filterClicked(4);">Funny Videos</a></li>
+                            <li class="filter15"><a href="javascript:filterClicked(15);">Screencasts</a></li>
+                            <li class="filter28"><a href="javascript:filterClicked(28);">Top Rated</a></li>
+                            <li class="filter29"><a href="javascript:filterClicked(29);">Most Viewed</a></li>
+                            <li class="filter30"><a href="javascript:filterClicked(30);">Featured</a></li>
+                            <!--<li class="filter31"><a href="javascript:filterClicked(31);">Latest First</a></li>-->
+                        </ul>
+                    </div>
+
+                    <div id="tab4_filters" class="filters">
+                        <ul>
+                            <li class="filter5"><a href="javascript:filterClicked(5);">MP3 Directories</a></li>
+                            <li class="filter6"><a href="javascript:filterClicked(6);">Guitar Tabs</a></li>
+                            <li class="filter7"><a href="javascript:filterClicked(7);">Lyrics</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="tab5_filters" class="filters">
+                        <ul>
+                            <li class="filter8"><a href="javascript:filterClicked(8);">PDF Files</a></li>
+                            <li class="filter9"><a href="javascript:filterClicked(9);">DOC Files</a></li>
+                            <li class="filter10"><a href="javascript:filterClicked(10);">PPT Files</a></li>
+                            <li class="filter14"><a href="javascript:filterClicked(14);">Audiobooks</a></li>
+                            <li class="filter15"><a href="javascript:filterClicked(15);">Screencasts</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="tab6_filters" class="filters">
+                        <ul>
+
+                        </ul>
+                    </div>
+
+                    <div id="tab7_filters" class="filters">
+                        <ul>
+                            <li class="filter11"><a href="javascript:filterClicked(11);">Search Mediafire only</a></li>
+                            <li class="filter32"><a href="javascript:filterClicked(32);">Search Multiupload only</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="tab8_filters" class="filters">
+                        <ul>
+                            <li class="filter17"><a href="javascript:filterClicked(17);">Latest First</a></li>
+                            <li class="filter16"><a href="javascript:filterClicked(16);">Other News Sites</a></li>
+                            <br><b>Topics:</b><br>
+                            <li class="filter18"><a href="javascript:filterClicked(18);">Top Headlines</a></li>
+                            <li class="filter19"><a href="javascript:filterClicked(19);">World</a></li>
+                            <li class="filter20"><a href="javascript:filterClicked(20);">Business</a></li>
+                            <li class="filter21"><a href="javascript:filterClicked(21);">Nation</a></li>
+                            <li class="filter22"><a href="javascript:filterClicked(22);">Science and Technology</a></li>
+                            <li class="filter23"><a href="javascript:filterClicked(23);">Elections</a></li>
+                            <li class="filter24"><a href="javascript:filterClicked(24);">Politics</a></li>
+                            <li class="filter25"><a href="javascript:filterClicked(25);">Entertainment</a></li>
+                            <li class="filter26"><a href="javascript:filterClicked(26);">Sports</a></li>
+                            <li class="filter27"><a href="javascript:filterClicked(27);">Health</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+                <!--             
+                             <div id="shareSearchBox"   style="display:none;" onMouseOver="$('shareSearchContent').style.display='';$('shareSearchBox').style.border='1px solid #999999';" onMouseOut="$('shareSearchContent').style.display='none';$('shareSearchBox').style.border='';">
+                                 <span>Share this search!</span>
+                                 <div id="shareSearchContent" style="display:none;padding:5px;">
+             
+                                 </div>
+                             </div>
+                -->
+
+            </div>
+
+
+            <div id="master">
+                <ul id="menu">
+                    <li id="tab1" class=""><a href="javascript:void(0)" onClick="javascript:tabClicked(1);return false;">Web</a></li>
+                    <li class="" id="tab2"><a href="javascript:void(0)" onClick="javascript:tabClicked(2);return false;">Images</a></li>
+                    <li class="" id="tab3"><a href="javascript:void(0)" onClick="javascript:tabClicked(3);return false;">Videos</a></li>
+                    <li class="" id="tab4"><a href="javascript:void(0)" onClick="javascript:tabClicked(4);return false;">Music</a></li>
+                    <li class="" id="tab5"><a href="javascript:void(0)" onClick="javascript:tabClicked(5);return false;">E-Books</a></li>
+                    <li class="" id="tab6"><a href="javascript:void(0)" onClick="javascript:tabClicked(6);return false;">Torrents</a></li>
+                    <li class="" id="tab7"><a href="javascript:void(0)" onClick="javascript:tabClicked(7);return false;">Shared Uploads</a></li>
+                    <li class="" id="tab8"><a href="javascript:void(0)" onClick="javascript:tabClicked(8);return false;">News</a></li>
+                </ul>
+
+
+
+                <div style="background-color:#FFFFFF"  id="s2">
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </body>
+</html>
