@@ -19,6 +19,8 @@ if(document.domain=='localhost')
 else
     base = "http://askwhole.com/beta";
 
+window.searcher=null;
+
 //Helper Methods
 
 //shorthand for document.getElementById
@@ -377,6 +379,7 @@ var t;
 //f holds numeric value for filter
 var f=0;
 //p holds numeric value for page
+var p;
 var tmp,v,cz=0;
 //creating a flg array named flg
 var flg = new Array();
@@ -426,17 +429,17 @@ function trackHash() {
         window.hash0=window.location.hash;
         readState();
     }
-
 }
 
 function readState(){
     //if any parameters are passed
+    p=1;
     doLog("Reading state");
     if (window.location.hash) {
         var key = window.location.hash
-        var p = key.split('#');
+        var r = key.split('#');
         //separate parameter from value
-        var s = p[1].split('&');
+        var s = r[1].split('&');
         //the counter
         c=0;
         while (s[c]) {
@@ -445,17 +448,21 @@ function readState(){
                 //read the search type
                 for (var i=1;i<=tabs.length;i++)
                     if (e[1]==tabs[i] || e[1]==i+'') t=i;
-                
             }
             else if (e[0] == "filter" || e[0] == "f") {
                 //read the filter type
                 for (i=1;i<=filters.length;i++)
                     if (e[1]==filters[i] || e[1]==i+'') f=i;
             }
-            //read the search query
+            else if (e[0] == "page" || e[0] == "p") {
+                //read the page number
+                p=e[1];
+            }
+            //read the search query and write it in search field
             if (e[0] == "search" || e[0] == "s" || e[0] == "q" || e[0] == "query") document.srch.s.value = unescape(e[1]);
         }
     }
+    loadTab();
     //focus to the search bar
     document.srch.s.focus();
     //uncomment to make the last selected filter to be forgotten on page load
@@ -464,9 +471,11 @@ function readState(){
 }
 
 function triggerSearch(){
-    if (window.searchQuery!=getSearchQuery()){
+    var tmp=[];
+    if (window.searchArray) tmp=window.searchArray;
+    if (tmp.toString()!=[getSearchQuery(),t,f,p].toString()){
         doLog('Search triggered');
-        window.searchQuery=getSearchQuery();
+        window.searchArray=[getSearchQuery(),t,f,p]
         clearAllSearches();
         window.timeOuts[new Date()] = window.setTimeout(callSearch, 1000);
     }
@@ -485,14 +494,13 @@ function callSearch(){
     if (getSearchQuery()) {
         doLog("Searching for "+getSearchQuery());
         doSearch();
-        modifyState(getSearchQuery());
+        modifyState();
     //insert 'share this search links
     //  insertShareLinks();
     }
     else{//if we don't have search query
 //remove ShareSearchbox
 //document.getElementById("shareSearchBox").style.display = "none";
-    
 }
 }
 
@@ -502,7 +510,8 @@ function tabClicked(a){
     unSetFilter();
     //clear the page variable;
     p=1;
-    loadTab();
+    modifyState();
+    
 }
 
 function unSetFilter(){
@@ -529,7 +538,6 @@ function filterClicked(a){
 
 function loadTab() {
     doLog("Loading tab "+tabs[t]);
-    
     //insert the filters
     enableFilters();
     //if filter is set, load the filter
@@ -543,10 +551,10 @@ function loadTab() {
         $('tab' + i).className='';
     //set the selected tab
     $('tab' + t).className='selected';
-    if (getSearchQuery()){
-        clearAllSearches();
-        callSearch();
-    }
+//    if (getSearchQuery()){
+//        clearAllSearches();
+//        callSearch();
+//    }
 }
 
 function loadFilter() {
@@ -555,8 +563,8 @@ function loadFilter() {
     setCookie("sf", f);
     //set new filter to have selected class
     getElementsByClass('filter' + f, 'li')[0].addClass('selectedFilter');
-//and finally trigger the search
-if (getSearchQuery()) callSearch();
+    //and finally trigger the search
+    if (getSearchQuery()) callSearch();
 }
 
 //function keyUp(e) {
@@ -567,8 +575,6 @@ if (getSearchQuery()) callSearch();
 //    //    if (kc) triggerSearch();
 //   
 //}
-
-
 
 function enableFilters()
 {
@@ -588,9 +594,12 @@ function insertShareLinks(){//generates share this search
     $('shareSearchContent').innerHTML=getSocialLinks('askWhole Search - '+getSearchQuery(),encodeURI(window.location));
 }
 
-function modifyState(q){
+function modifyState(){
     //change the page title
+    doLog("Modifying State");
+    q=getSearchQuery();
     document.title='askWhole Search - '+q;
+    //    if(typeof(searcher) != "undefined") doLog("Page: "+searcher.cursor.currentPageIndex);
     //the searching animation
     //document.getElementById("sm").value = "    Searching...";
     //document.getElementById("sm").style.backgroundImage = "url('i/loading.gif')";
@@ -599,17 +608,18 @@ function modifyState(q){
     
     //change the URL
     
-    
     var filterText='';
     if (f!=0){
         filterText = '&filter='+filters[f];
     }
     hp='type='+tabs[t]+filterText+'&query='+escape(q);
+    if (p>1) hp+='&page='+p;
     window.location.hash=hp;
     
 }
 
 function doSearch() {
+    //var searcher;
     searchControl = new google.search.SearchControl();
     var options = new google.search.SearcherOptions();
     options.setExpandMode(google.search.SearchControl.EXPAND_MODE_OPEN);
@@ -632,7 +642,7 @@ function doSearch() {
         //images
         if (t == 2){
             //searchControl.addSearcher(new google.search.ImageSearch(), options);
-            var searcher = new google.search.ImageSearch();
+            searcher = new google.search.ImageSearch();
             
             if ((tmp=document.img_options.IMAGESIZE.value))
                 searcher.setRestriction(google.search.ImageSearch.RESTRICT_IMAGESIZE,eval('google.search.ImageSearch.IMAGESIZE_'+tmp));
@@ -768,7 +778,7 @@ function doSearch() {
         
         if (f>=18 && f<=27){//for news topics
             var topic;
-            var searcher = new google.search.NewsSearch()
+            searcher = new google.search.NewsSearch()
             switch(f){
                 case 18:
                     topic='h';
@@ -849,9 +859,7 @@ function doSearch() {
 
     setTimeout("document.getElementById('sm').style.backgroundImage='';", 1000);
 //setTimeout("document.getElementById('sm').value='Search Again!';", 1000);
-
 }
-
 
 function addQuery(q){
     var searchControl = new google.search.SearchControl();
@@ -864,15 +872,12 @@ function addQuery(q){
     return searchControl;
 }
 
-
 function setCSC(id){
     var searchControl = new google.search.SearchControl();
     searchControl = new google.search.CustomSearchControl(id);
     searchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
     return searchControl;
 }
-
-
 
 function returnKey(k) {
     k=k.keyCode;
@@ -993,15 +998,16 @@ function modifyForVideo(){
             if(tags[i].children.length>1) continue;
             var links=document.createElement('span');
             links.setAttribute('class', 'vlinks');
-            dur = document.createElement('span');
-            dur.setAttribute('class', 'play');
-            dur.innerHTML='<a href="javascript:void(0)" onClick="javascript:playVid(rez['+c+']);">Play</a>';
-            links.appendChild(dur);
-            rat = document.createElement('span');
-            rat.setAttribute('class', 'dwnld');
+            play = document.createElement('span');
+            play.setAttribute('class', 'play');
+            play.innerHTML='<a href="javascript:void(0)" onClick="javascript:playVid(rez['+c+']);">Play</a>';
+            links.appendChild(play);
+            //rat = document.createElement('span');
+            //rat.setAttribute('class', 'dwnld');
             //"Rating: "+Math.round(rez[c].rating*100)/100;
-            rat.innerHTML='<a href="javascript:void(0)" onClick="javascript:openDownload(rez['+c+']);">Download</a>';
-            links.appendChild(rat);
+            //console.log(rez[c]);
+            //rat.innerHTML='<a href="javascript:void(0)" onClick="javascript:openDownload(rez['+c+']);">Download</a>';
+            //links.appendChild(rat);
             tags[i].appendChild(links);
             c++;
 
@@ -1028,13 +1034,12 @@ function getLinks(c){
     return link;
 }
 
-
 function addLinks() {
     var results = getElementsByClass("gsc-table-cell-snippet-close", "td");
     for (var i = 0;i<rez.length; i++) {
         //doLog(i+" Adding Links for "+getSearchQuery());    
         if(results[i])
-        results[i].appendChild(getLinks(i));
+            results[i].appendChild(getLinks(i));
         
     }
 }
@@ -1056,10 +1061,13 @@ function modify() {
     else addLinks();
 }
 
-function searchComplete(searchControl1, searcher) {
+function searchComplete(searchControl, srchr) {
+    searcher=srchr;
+    doLog("Search complete!");
+    //doLog(searchControl1);
+    //if(!searcher.cursor) return;
     if (searcher.results.length > 0) {
         var str = "";
-        exposed=searcher;
         var n = searcher.cursor.estimatedResultCount;
         if (n > 5000) str = "Around ";
         str+=n + " results";
@@ -1069,7 +1077,11 @@ function searchComplete(searchControl1, searcher) {
         for (var i = 0; i < searcher.results.length; i++) {
             rez[i] = searcher.results[i];
         }
-        createNavigation();
+        createNavigation(searcher.cursor);
+        if (searcher.cursor.currentPageIndex!=p-1){
+            searcher.clearResults();
+            searcher.gotoPage(p-1);
+            }
         modify();
     }
     else {
@@ -1078,29 +1090,31 @@ function searchComplete(searchControl1, searcher) {
 }
 
 function navigateTo(a){
-    exposed.gotoPage(a+1);
-//doLog(exposed.cursor);
+    doLog("Navigating to Page "+(a+1));
+    searcher.gotoPage(a);
+    p=a+1;
+    //modifyState();
 }
 
-function createNavigation(){
-    //doLog(exposed.cursor.pages.length+" pages of results for the search!");
-    if (exposed.cursor.currentPageIndex==0) 
+function createNavigation(cursor){
+    //doLog(searcher.cursor.pages.length+" pages of results for the search!");
+    if (cursor.currentPageIndex==0) 
         document.getElementById('previous').style.display='none';
     else 
         document.getElementById('previous').style.display='';
-    if (exposed.cursor.currentPageIndex==exposed.cursor.pages.length-1) 
+    if (cursor.currentPageIndex==cursor.pages.length-1) 
         document.getElementById('next').style.display='none';
     else 
         document.getElementById('next').style.display='';
-    str="Page "+(exposed.cursor.currentPageIndex+1)+" of "+exposed.cursor.pages.length;
+    str="Page "+(cursor.currentPageIndex+1)+" of "+cursor.pages.length;
     $('pagination_info').innerHTML=str;
     
 }
 
 function next(){
-    if (exposed.cursor) navigateTo(exposed.cursor.currentPageIndex);
+    if (searcher.cursor) navigateTo(searcher.cursor.currentPageIndex+1);
 }
 
 function previous(){
-    if (exposed.cursor) navigateTo(exposed.cursor.currentPageIndex-2);
+    if (searcher.cursor) navigateTo(searcher.cursor.currentPageIndex-1);
 }

@@ -196,16 +196,9 @@ a:hover	{
 .gsc-trailing-more-results{display:none; }
 
 
-.gsc-cursor-page {
-    cursor : pointer;
-    color : #000000;
-    text-decoration: underline;
-    margin-right : 8px;
-    display : inline;}
-.gsc-cursor-current-page{color : #A90A08;
-                         font-weight : bold;
-                         text-decoration: none;
-                         cursor : auto;}
+.gsc-cursor {
+    display:none;}
+
 .gs-visibleUrl {color:#008000;display:inline;margin-right:10px;}
 .gs-visibleUrl-short{display:none;}
 .gs-title{display: list-item;

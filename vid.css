@@ -1,0 +1,40 @@
+.frame{
+position: absolute;
+background-color: #E8EBF0;
+-moz-border-radius: 15px;
+border: 2px solid #800000;
+width: 435px;
+height: 400px;
+cursor: move;
+padding: 0px 0px 0px 10px;
+
+   
+       
+}
+.button a{
+   text-decoration: none;
+   color: green;
+   padding : 0px 5px 0px 5px;
+   outline:none;
+     
+}
+
+.buttons{
+    float: right;
+    padding : 0px 1px 4px 1px;
+    -moz-border-radius: 10px;
+    border: 2px solid #AAAAAA;
+}
+
+.min{
+border-right: 2px solid #AAAAAA;
+}
+
+.hline{
+    padding : 0px 0px 0px 0px;
+}
+
+.paneContent{
+    cursor: default;
+    padding: 0px 10px 0px 10px;
+}
