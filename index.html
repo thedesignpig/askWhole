@@ -8,12 +8,25 @@
   <script type="text/javascript" src="http://www.google.com/jsapi"> </script>
   <script type="text/javascript" src="base.js"> </script>
   <style>
+  body:before {
+      content: "";
+      float: left;
+      height: 100%;
+      margin-top: -32767px;
+      width: 0;
+  }
+  html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+  }
   header
   {
     height: 50px;
     margin-bottom: 10px;
     text-align: center;
     width:100%;
+     padding: 20px 0;
   }
   #top_wrapper{
     margin: 0 auto;
@@ -66,6 +79,7 @@
     font-weight:bold;
     margin: 0 4px;
     padding: 7px 10px;
+    height: 33px;
     position:relative;
     font-family: 'Open Sans', sans-serif;
     font-size:12px;
@@ -97,7 +111,6 @@
   {
     float: left;
     margin-bottom: 10px;
-    margin-left: -100%;
     width: 220px;
   }
 
@@ -145,16 +158,14 @@
     outline: none;
   }
   h1.styled{
-    color:#990000;
+    color:#999;
     text-align: center;
-    font-size:2.4em;
+    font-size:1.8em;
     text-shadow: 1px 1px 0 #F2F2F2, 1px 2px 0 #B1B1B2;
     font-family:'Times New Roman';
-    text-transform: uppercase;
+    font-weight:normal;
   }
-  h1.styled span{
-    color:#07287F;
-  }
+
   #nav li strong{
     text-shadow: 1px 1px 0 #F2F2F2, 1px 2px 0 #B1B1B2;
     color: #333;
@@ -171,8 +182,22 @@
     float:left;
     width:100%;
   }
-  .innertube{
-    margin: 0 10px 10px;
+  #static-info{
+    padding-right: 220px;
+       text-align: center;
+  }
+  #fluid-container{
+    height: auto !important;
+  }
+  #inner-wrap{
+    overflow: auto;
+  }
+  #main-container{
+    height:100%;
+    overflow:hidden;
+  }
+  .askwhole-info{
+    text-align:center;
   }
   </style>
 </head>
@@ -217,22 +242,14 @@
     <li class="" id="tab7"><a href="javascript:void(0)" onClick="javascript:tabClicked(7);return false;">Shared Uploads</a></li>
     <li class="" id="tab8"><a href="javascript:void(0)" onClick="javascript:tabClicked(8);return false;">News</a></li>
   </ul>
-  
 
 
-  <div id="content">
-    <div id="master">
 
-      <div style="background-color:#FFFFFF"  id="s2" class="innertube">
-        <h1 class="styled">Search Accurate, Search fast <br /> <span>Search SMART</span></h2>
-      </div>
-        
-    </div>
-  </div>
-
+  <div id="fluid-container">
+    <div id="inner-wrap">
+    <div id="main-container">
     
     <div id="nav">
-      <div class="innertube">
       
       <div id="filters">
         <div id="tab1_filters" class="filters">
@@ -376,9 +393,27 @@
       </div>
     
     </div>
-    </div>
     
     </div><!-- eof nav  -->
+    
+    <div id="master">
+
+      <div style="background-color:#FFFFFF"  id="s2" class="innertube">
+       
+       <div id="static-info">
+          <img src="images/askwhole-art.jpg" />
+          <h1 class="styled">askWhole is a cool, intelligent and fast web search application that utilizes the power of Google!</h2>
+        </div>
+      </div>
+        
+    </div>
+    
+  </div>
+  </div>
+  </div>
+  </div>
+  
+
     
     <div id="footer">
       <div id="pagination">
@@ -386,7 +421,27 @@
         <span id="pagination_info"></span>
         <span id="next" style="display:none;"><a href='javascript:next();'>Next</a></span>
         <br />
-        <a href="https://github.com/xtranophilist/askWhole"> Project Repo</a>
+        
+        <table class="askwhole-info" align="center">
+          <tr>
+            <th>Project Repo</th>
+            <th>Share The Ride</th>
+            <th>Drivers </th>
+          </tr>
+        <tr>
+        <td>
+           <a href="https://github.com/xtranophilist/askWhole"> <img src="images/github-white.png" height="32" />/askWhole</a> <br />
+          <!--<img src="images/powered_by_google.gif" />-->
+        </td>
+        <td>
+          <a href="twitter.com/xtranophilist"><img src="images/twitter-bird.png"></a>
+        </td>
+        <td>
+        <a href="twitter.com/xtranophilist"><img src="images/twitter-bird.png" height="28">xtranophilist</a>  <br />
+        <a href="twitter.com/roxxy.poxxy"><img src="images/twitter-bird.png" height="28">roxxy.poxxy</a>  
+        </td>
+        </tr>
+        </table>
       </div>
     </div> 
 
