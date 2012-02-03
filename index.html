@@ -1,377 +1,394 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>askWhole | Smart Search, fast and accurate </title>
-<link title="askWhole Search" href="http://askwhole.com/askwhole.xml"
-type="application/opensearchdescription+xml" rel="search">
-<link rel="stylesheet" type="text/css" href="source.css" />
+  <title>askWhole | Smart Search, fast and accurate </title>
+  <link title="askWhole Search" href="http://askwhole.com/askwhole.xml"
+  type="application/opensearchdescription+xml" rel="search">
+  <link rel="stylesheet" type="text/css" href="source.css" />
   <script type="text/javascript" src="http://www.google.com/jsapi"> </script>
   <script type="text/javascript" src="base.js"> </script>
-<style>
-header
-{
-height: 50px;
-margin-bottom: 10px;
-text-align: center;
-width:100%;
-}
-#top_wrapper{
-margin: 0 auto;
-width: 680px;
-}
-#top_wrapper a,#top_wrapper input,#top_wrapper form{
-float: left;
-}
-#srcdiv form{
-	
+  <style>
+  header
+  {
+    height: 50px;
+    margin-bottom: 10px;
+    text-align: center;
+    width:100%;
+  }
+  #top_wrapper{
+    margin: 0 auto;
+    width: 680px;
+  }
+  #top_wrapper a,#top_wrapper input,#top_wrapper form{
+    float: left;
+  }
+  #srcdiv form{
+
     padding: 6px;
-     -webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-o-border-radius: 5px;
-	border-radius: 5px;
-	margin: 0 10px;
-	 background: none repeat scroll 0 0 #FFFFFF;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    margin: 0 10px;
+    background: none repeat scroll 0 0 #FFFFFF;
     border-radius: 5px 5px 5px 5px;
     box-shadow: 0 0 4px #EEEEEE inset, 0 0 1px #333333;
-}
-#srcdiv form .search-field{
-	font-size: 1.2em;
+  }
+  #srcdiv form .search-field{
+    font-size: 1.2em;
     width: 350px;
     padding: 4px;
-     -webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-o-border-radius: 5px;
-	border-radius: 5px;
-	border: 1px solid #999;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #999;
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0)), color-stop(30%, rgba(255,255,255,0)), color-stop(50%, rgba(0,0,0,0)), to(rgba(0,0,0,0.1)));
-	background: -moz-linear-gradient(bottom, rgba(255,255,255,0), rgba(255,255,255,0) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1));
-	background: -webkit-linear-gradient(bottom, rgba(255,255,255,0), rgba(255,255,255,0) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1));
-	background: linear-gradient(bottom, rgba(255,255,255,0), rgba(255,255,255,0) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1));
-	text-shadow: 0 1px 0 rgba(255,255,255,0.8) !important;
-	-moz-box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
-	-webkit-box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
-	box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
-   
-}
-#srcdiv form .search-field:hover{
-	background-color: #f9f9f9;
-	border: 1px solid #777;
-}
-#srcdiv form .search-field:focus{
-	background-color: #fefefe;
-	border: 1px solid #666;
-}
-#sm{
-	text-shadow: 1px 1px 1px #333333;
-	font-weight:bold;
-	margin: 0 4px;
+    background: -moz-linear-gradient(bottom, rgba(255,255,255,0), rgba(255,255,255,0) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1));
+    background: -webkit-linear-gradient(bottom, rgba(255,255,255,0), rgba(255,255,255,0) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1));
+    background: linear-gradient(bottom, rgba(255,255,255,0), rgba(255,255,255,0) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1));
+    text-shadow: 0 1px 0 rgba(255,255,255,0.8) !important;
+    -moz-box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
+    -webkit-box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
+    box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
+
+  }
+  #srcdiv form .search-field:hover{
+    background-color: #f9f9f9;
+    border: 1px solid #777;
+  }
+  #srcdiv form .search-field:focus{
+    background-color: #fefefe;
+    border: 1px solid #666;
+  }
+  #sm{
+    text-shadow: 1px 1px 1px #333333;
+    font-weight:bold;
+    margin: 0 4px;
     padding: 7px 10px;
-	position:relative;
-	font-family: 'Open Sans', sans-serif;
-	font-size:12px;
-	text-decoration:none;
-	color:#fff;
+    position:relative;
+    font-family: 'Open Sans', sans-serif;
+    font-size:12px;
+    text-decoration:none;
+    color:#fff;
     border: 1px solid rgba(0,0,0,0.2);
-	border-bottom-color: rgba(0,0,0,0.4);
-	-moz-box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
-	-webkit-box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
-	box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
-	color: #fff !important;
-	cursor: pointer;
+    border-bottom-color: rgba(0,0,0,0.4);
+    -moz-box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
+    -webkit-box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
+    box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
+    color: #fff !important;
+    cursor: pointer;
 
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-o-border-radius: 5px;
-	border-radius: 5px;
-	
-	background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.1)), color-stop(49%, rgba(255,255,255,0.05)), color-stop(51%, rgba(0,0,0,0.05)), to(rgba(0,0,0,0.1)));
-	background: -moz-linear-gradient(top, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 49%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.1));
-	background: -webkit-linear-gradient(top, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 49%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.1));
-	background: linear-gradient(top, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 49%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.1));
-	background: none repeat scroll 0 0 #2954A9;
-}
-#sm:hover{
-	background:#222;
-}
-#nav
-{
-float: left;
-width: 216px;
-height: 150px;
-margin-bottom: 10px;
-}
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
 
-#content
-{
-float:left;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.1)), color-stop(49%, rgba(255,255,255,0.05)), color-stop(51%, rgba(0,0,0,0.05)), to(rgba(0,0,0,0.1)));
+    background: -moz-linear-gradient(top, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 49%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.1));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 49%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.1));
+    background: linear-gradient(top, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 49%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.1));
+    background: none repeat scroll 0 0 #2954A9;
+  }
+  #sm:hover{
+    background:#222;
+  }
+  #nav
+  {
+    float: left;
+    margin-bottom: 10px;
+    margin-left: -100%;
+    width: 220px;
+  }
 
-}
+  #content
+  {
+    float:left;
+    width: 100%;
+  }
 
-#footer
-{
-clear: both;
-height: 50px;
+  #footer
+  {
+    clear: both;
+    height: 50px;
 
-margin-bottom: 10px;
-}
-#nav ul{
-	list-style:none;
-	margin: 0;
+    margin-bottom: 10px;
+  }
+  #nav ul{
+    list-style:none;
+    margin: 0;
     padding: 0;
 
-}
-#nav ul li{
-	 padding: 2px 4px;
-	 border-bottom: 1px solid #CCCCCC;
-}
-#nav ul li a{
-	display: block;
-	padding: 8px 4px;
-	font-size:1.2em;
-}
-#nav ul li a:hover{
-	text-align: right;
-}
-#nav select{
-  margin:4px 0px;
-}
-a{
-	color:#07287F;
-	text-decoration: none;
-	outline:none;
-}
-a img{
-	border: none;
-	outline: none;
-}
-h1.styled{
-	color:#990000;
-	text-align: center;
-	font-size:2.4em;
-	text-shadow: 1px 1px 0 #F2F2F2, 1px 2px 0 #B1B1B2;
-	font-family:'Times New Roman';
-	text-transform: uppercase;
-}
-h1.styled span{
-	color:#07287F;
-}
-#nav li strong{
-  text-shadow: 1px 1px 0 #F2F2F2, 1px 2px 0 #B1B1B2;
-  color: #333;
-  font-size: 1.2em;
-      padding: 6px 0;
-      display:block;
-}
-#footer{
-  text-align: center;
-  clear: both;
-  width: 100%;
-}
-</style>
+  }
+  #nav ul li{
+    padding: 2px 4px;
+    border-bottom: 1px solid #CCCCCC;
+  }
+  #nav ul li a{
+    display: block;
+    padding: 8px 4px;
+    font-size:1.2em;
+  }
+  #nav ul li a:hover{
+    text-align: right;
+  }
+  #nav select{
+    margin:4px 0px;
+  }
+  a{
+    color:#07287F;
+    text-decoration: none;
+    outline:none;
+  }
+  a img{
+    border: none;
+    outline: none;
+  }
+  h1.styled{
+    color:#990000;
+    text-align: center;
+    font-size:2.4em;
+    text-shadow: 1px 1px 0 #F2F2F2, 1px 2px 0 #B1B1B2;
+    font-family:'Times New Roman';
+    text-transform: uppercase;
+  }
+  h1.styled span{
+    color:#07287F;
+  }
+  #nav li strong{
+    text-shadow: 1px 1px 0 #F2F2F2, 1px 2px 0 #B1B1B2;
+    color: #333;
+    font-size: 1.2em;
+    padding: 6px 0;
+    display:block;
+  }
+  #footer{
+    text-align: center;
+    clear: both;
+    width: 100%;
+  }
+  #content_wrapper{
+    float:left;
+    width:100%;
+  }
+  .innertube{
+    margin: 0 10px 10px;
+  }
+  </style>
 </head>
 <body>
-     <div id="pane" style="display:none;">
-          <div id="paneContent">
-              <span id="paneTitle">
-                  Pane Title
-              </span>
-              <a id="closeButton" href="javascript:void(0);" onclick="closePane();">x</a>
-              <div id="paneBody">
-                  Pane Content
-              </div>
-          </div>
+  
+  <div id="pane" style="display:none;">
+    <div id="paneContent">
+      <span id="paneTitle">
+        Pane Title
+      </span>
+      <a id="closeButton" href="javascript:void(0);" onclick="closePane();">x</a>
+      <div id="paneBody">
+        Pane Content
       </div>
-      <div id="paneBackground" style="display:none;"></div>
-<header>
-<div id="top_wrapper">
-<a href="index.html" ><img src="images/askwhole.png" /></a>
-<div id="srcdiv" >
-<form  id="srch" name="srch" onSubmit="javascript:loadTab(0);return false;" action="">
-<input type="text" name="s" onfocus="window.inTextBox = true;"  onclick="if (this.value=='put search terms here') {this.value='';this.style.color='#222222';}" onblur="window.inTextBox = false;" onKeyUp="triggerSearch(event);" class="search-field"/>
+    </div>
+  </div>
+  <div id="paneBackground" style="display:none;"></div>
+  
+  <header>
+    <div id="top_wrapper">
+      <a href="index.html" ><img src="images/askwhole.png" /></a>
+      <div id="srcdiv" >
+        <form  id="srch" name="srch" onSubmit="javascript:loadTab(0);return false;" action="">
+          <input type="text" name="s" onfocus="window.inTextBox = true;"  onclick="if (this.value=='put search terms here') {this.value='';this.style.color='#222222';}" onblur="window.inTextBox = false;" onKeyUp="triggerSearch(event);" class="search-field"/>
 
-<input id="sm" type="submit" name="submit1" value="Search!" />
+          <input id="sm" type="submit" name="submit1" value="Search!" />
 
-</form>
-<span id="no"></span>
-<span id="test"></span>
-</div>
-</div>
-</header>
-<ul id="menu">
-                    <li id="tab1" class=""><a href="javascript:void(0)" onClick="javascript:tabClicked(1);return false;">Web</a></li>
-                    <li class="" id="tab2"><a href="javascript:void(0)" onClick="javascript:tabClicked(2);return false;">Images</a></li>
-                    <li class="" id="tab3"><a href="javascript:void(0)" onClick="javascript:tabClicked(3);return false;">Videos</a></li>
-                    <li class="" id="tab4"><a href="javascript:void(0)" onClick="javascript:tabClicked(4);return false;">Music</a></li>
-                    <li class="" id="tab5"><a href="javascript:void(0)" onClick="javascript:tabClicked(5);return false;">E-Books</a></li>
-                    <li class="" id="tab6"><a href="javascript:void(0)" onClick="javascript:tabClicked(6);return false;">Torrents</a></li>
-                    <li class="" id="tab7"><a href="javascript:void(0)" onClick="javascript:tabClicked(7);return false;">Shared Uploads</a></li>
-                    <li class="" id="tab8"><a href="javascript:void(0)" onClick="javascript:tabClicked(8);return false;">News</a></li>
-                </ul>
-<div id="nav">
-  <div id="filters">
-      <div id="tab1_filters" class="filters">
-          <ul>
-              <li class="filter1"><a href="javascript:filterClicked(1);">Blogs</a></li>
-              <li class="filter13"><a href="javascript:filterClicked(13);">Technology</a></li>
-              <!---
-              <li class="filter12"><a href="javascript:filterClicked(12);">Nepali Only</a></li>
-              -->
-          </ul>
+        </form>
+        <span id="no"></span>
+        <span id="test"></span>
       </div>
+    </div>
+  </header>
+  
+  <ul id="menu">
+    <li id="tab1" class=""><a href="javascript:void(0)" onClick="javascript:tabClicked(1);return false;">Web</a></li>
+    <li class="" id="tab2"><a href="javascript:void(0)" onClick="javascript:tabClicked(2);return false;">Images</a></li>
+    <li class="" id="tab3"><a href="javascript:void(0)" onClick="javascript:tabClicked(3);return false;">Videos</a></li>
+    <li class="" id="tab4"><a href="javascript:void(0)" onClick="javascript:tabClicked(4);return false;">Music</a></li>
+    <li class="" id="tab5"><a href="javascript:void(0)" onClick="javascript:tabClicked(5);return false;">E-Books</a></li>
+    <li class="" id="tab6"><a href="javascript:void(0)" onClick="javascript:tabClicked(6);return false;">Torrents</a></li>
+    <li class="" id="tab7"><a href="javascript:void(0)" onClick="javascript:tabClicked(7);return false;">Shared Uploads</a></li>
+    <li class="" id="tab8"><a href="javascript:void(0)" onClick="javascript:tabClicked(8);return false;">News</a></li>
+  </ul>
+  
 
-      <div id="tab2_filters" class="filters">
-          <ul>
-              <li class="filter2"><strong>Image Host Sites</strong></li>
+
+  <div id="content">
+    <div id="master">
+
+      <div style="background-color:#FFFFFF"  id="s2" class="innertube">
+        <h1 class="styled">Search Accurate, Search fast <br /> <span>Search SMART</span></h2>
+      </div>
         
-          <form name="img_options" action="javascript:void(0);">
+    </div>
+  </div>
+
+    
+    <div id="nav">
+      <div class="innertube">
+      
+      <div id="filters">
+        <div id="tab1_filters" class="filters">
+          <ul>
+            <li class="filter1"><a href="javascript:filterClicked(1);">Blogs</a></li>
+            <li class="filter13"><a href="javascript:filterClicked(13);">Technology</a></li>
+            <!---
+            <li class="filter12"><a href="javascript:filterClicked(12);">Nepali Only</a></li>
+            -->
+          </ul>
+        </div>
+
+        <div id="tab2_filters" class="filters">
+          <ul>
+            <li class="filter2"><strong>Image Host Sites</strong></li>
+
+            <form name="img_options" action="javascript:void(0);">
               <li><select name="IMAGESIZE" onchange="triggerSearch();">
-                  <option selected value="">Any size</option>
-                  <option value="SMALL">Small</option>
-                  <option value="MEDIUM">Medium</option>
-                  <option value="LARGE">Large</option>
-                  <option value="EXTRA_LARGE">Extra Large</option>
+                <option selected value="">Any size</option>
+                <option value="SMALL">Small</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="LARGE">Large</option>
+                <option value="EXTRA_LARGE">Extra Large</option>
               </select></li>
 
-               <li>  <select name="RIGHTS" onchange="triggerSearch();">
-                  <option selected value="">Any rights</option>
-                  <option value="REUSE">Reusable</option>
-                  <option value="COMMERCIAL_REUSE">Commercially Reusable</option>
-                  <option value="MODIFICATION">Modifiable</option>
-                  <option value="COMMERCIAL_MODIFICATION">Commercially Modifiable</option>
+              <li>  <select name="RIGHTS" onchange="triggerSearch();">
+                <option selected value="">Any rights</option>
+                <option value="REUSE">Reusable</option>
+                <option value="COMMERCIAL_REUSE">Commercially Reusable</option>
+                <option value="MODIFICATION">Modifiable</option>
+                <option value="COMMERCIAL_MODIFICATION">Commercially Modifiable</option>
               </select></li>
 
-                <li> <select name="IMAGETYPE" onchange="triggerSearch();">
-                  <option selected value="">Any type</option>
-                  <option value="FACES">Faces</option>
-                  <option value="PHOTO">Photo</option>
-                  <option value="CLIPART">Clip Art</option>
-                  <option value="LINEART">Line Drawing</option>
+              <li> <select name="IMAGETYPE" onchange="triggerSearch();">
+                <option selected value="">Any type</option>
+                <option value="FACES">Faces</option>
+                <option value="PHOTO">Photo</option>
+                <option value="CLIPART">Clip Art</option>
+                <option value="LINEART">Line Drawing</option>
               </select></li>
 
-                <li> <select name="FILETYPE" onchange="triggerSearch();">
-                  <option selected value="">Any file type</option>
-                  <option value="JPG">JPG</option>
-                  <option value="PNG">PNG</option>
-                  <option value="GIF">GIF</option>
-                  <option value="BMP">BMP</option>
+              <li> <select name="FILETYPE" onchange="triggerSearch();">
+                <option selected value="">Any file type</option>
+                <option value="JPG">JPG</option>
+                <option value="PNG">PNG</option>
+                <option value="GIF">GIF</option>
+                <option value="BMP">BMP</option>
               </select></li>
 
-                <li> <select name="COLORFILTER" onchange="triggerSearch();">
-                  <option selected value="">Any color filter</option>
-                  <option value="BLACK">Black</option>
-                  <option value="BLUE">Blue</option>
-                  <option value="BROWN">Brown</option>
-                  <option value="GRAY">Gray</option>
-                  <option value="GREEN">Green</option>
-                  <option value="ORANGE">Orange</option>
-                  <option value="PINK">Pink</option>
-                  <option value="PURPLE">Purple</option>
-                  <option value="RED">Red</option>
-                  <option value="TEAL">Teal</option>
-                  <option value="WHITE">White</option>
-                  <option value="YELLOW">Yellow</option>
+              <li> <select name="COLORFILTER" onchange="triggerSearch();">
+                <option selected value="">Any color filter</option>
+                <option value="BLACK">Black</option>
+                <option value="BLUE">Blue</option>
+                <option value="BROWN">Brown</option>
+                <option value="GRAY">Gray</option>
+                <option value="GREEN">Green</option>
+                <option value="ORANGE">Orange</option>
+                <option value="PINK">Pink</option>
+                <option value="PURPLE">Purple</option>
+                <option value="RED">Red</option>
+                <option value="TEAL">Teal</option>
+                <option value="WHITE">White</option>
+                <option value="YELLOW">Yellow</option>
               </select>
-</li>
-                <li> <select name="COLORIZATION" onchange="triggerSearch();">
-                  <option selected value="">Any coloration</option>
-                  <option value="COLOR">Color</option>
-                  <option value="GRAYSCALE">Grayscale</option>
-              </select></li>
+            </li>
+            <li> <select name="COLORIZATION" onchange="triggerSearch();">
+              <option selected value="">Any coloration</option>
+              <option value="COLOR">Color</option>
+              <option value="GRAYSCALE">Grayscale</option>
+            </select></li>
 
-               <li>  <select name="SAFESEARCH" onchange="triggerSearch();">
-                  <option selected value="">Moderate Safe Search</option>
-                  <option value="STRICT">Strict Safe Search</option>
-                  <option value="OFF">Safe Search Off</option>
-              </select></li>
+            <li>  <select name="SAFESEARCH" onchange="triggerSearch();">
+              <option selected value="">Moderate Safe Search</option>
+              <option value="STRICT">Strict Safe Search</option>
+              <option value="OFF">Safe Search Off</option>
+            </select></li>
 
           </form>
-  </ul>
+        </ul>
       </div>
 
       <div id="tab3_filters" class="filters">
-          <ul>
-              <li class="filter3"><a href="javascript:filterClicked(3);">More Video Site</a></li>
-              <li class="filter4"><a href="javascript:filterClicked(4);">Funny Videos</a></li>
-              <li class="filter15"><a href="javascript:filterClicked(15);">Screencasts</a></li>
-              <li class="filter28"><a href="javascript:filterClicked(28);">Top Rated</a></li>
-              <li class="filter29"><a href="javascript:filterClicked(29);">Most Viewed</a></li>
-              <li class="filter30"><a href="javascript:filterClicked(30);">Featured</a></li>
-              <!--<li class="filter31"><a href="javascript:filterClicked(31);">Latest First</a></li>-->
-          </ul>
+        <ul>
+          <li class="filter3"><a href="javascript:filterClicked(3);">More Video Site</a></li>
+          <li class="filter4"><a href="javascript:filterClicked(4);">Funny Videos</a></li>
+          <li class="filter15"><a href="javascript:filterClicked(15);">Screencasts</a></li>
+          <li class="filter28"><a href="javascript:filterClicked(28);">Top Rated</a></li>
+          <li class="filter29"><a href="javascript:filterClicked(29);">Most Viewed</a></li>
+          <li class="filter30"><a href="javascript:filterClicked(30);">Featured</a></li>
+          <!--<li class="filter31"><a href="javascript:filterClicked(31);">Latest First</a></li>-->
+        </ul>
       </div>
 
       <div id="tab4_filters" class="filters">
-          <ul>
-              <li class="filter5"><a href="javascript:filterClicked(5);">MP3 Directories</a></li>
-              <li class="filter6"><a href="javascript:filterClicked(6);">Guitar Tabs</a></li>
-              <li class="filter7"><a href="javascript:filterClicked(7);">Lyrics</a></li>
-          </ul>
+        <ul>
+          <li class="filter5"><a href="javascript:filterClicked(5);">MP3 Directories</a></li>
+          <li class="filter6"><a href="javascript:filterClicked(6);">Guitar Tabs</a></li>
+          <li class="filter7"><a href="javascript:filterClicked(7);">Lyrics</a></li>
+        </ul>
       </div>
 
       <div id="tab5_filters" class="filters">
-          <ul>
-              <li class="filter8"><a href="javascript:filterClicked(8);">PDF Files</a></li>
-              <li class="filter9"><a href="javascript:filterClicked(9);">DOC Files</a></li>
-              <li class="filter10"><a href="javascript:filterClicked(10);">PPT Files</a></li>
-              <li class="filter14"><a href="javascript:filterClicked(14);">Audiobooks</a></li>
-              <li class="filter15"><a href="javascript:filterClicked(15);">Screencasts</a></li>
-          </ul>
+        <ul>
+          <li class="filter8"><a href="javascript:filterClicked(8);">PDF Files</a></li>
+          <li class="filter9"><a href="javascript:filterClicked(9);">DOC Files</a></li>
+          <li class="filter10"><a href="javascript:filterClicked(10);">PPT Files</a></li>
+          <li class="filter14"><a href="javascript:filterClicked(14);">Audiobooks</a></li>
+          <li class="filter15"><a href="javascript:filterClicked(15);">Screencasts</a></li>
+        </ul>
       </div>
 
       <div id="tab6_filters" class="filters">
-          <ul>
+        <ul>
 
-          </ul>
+        </ul>
       </div>
 
       <div id="tab7_filters" class="filters">
-          <ul>
-              <li class="filter11"><a href="javascript:filterClicked(11);">Search Mediafire only</a></li>
-              <li class="filter32"><a href="javascript:filterClicked(32);">Search Multiupload only</a></li>
-          </ul>
+        <ul>
+          <li class="filter11"><a href="javascript:filterClicked(11);">Search Mediafire only</a></li>
+          <li class="filter32"><a href="javascript:filterClicked(32);">Search Multiupload only</a></li>
+        </ul>
       </div>
 
       <div id="tab8_filters" class="filters">
-          <ul>
-              <li class="filter17"><a href="javascript:filterClicked(17);">Latest First</a></li>
-              <li class="filter16"><a href="javascript:filterClicked(16);">Other News Sites</a></li>
-              <li><strong>Topics:</strong></li>
-              <li class="filter18"><a href="javascript:filterClicked(18);">Top Headlines</a></li>
-              <li class="filter19"><a href="javascript:filterClicked(19);">World</a></li>
-              <li class="filter20"><a href="javascript:filterClicked(20);">Business</a></li>
-              <li class="filter21"><a href="javascript:filterClicked(21);">Nation</a></li>
-              <li class="filter22"><a href="javascript:filterClicked(22);">Science and Technology</a></li>
-              <li class="filter23"><a href="javascript:filterClicked(23);">Elections</a></li>
-              <li class="filter24"><a href="javascript:filterClicked(24);">Politics</a></li>
-              <li class="filter25"><a href="javascript:filterClicked(25);">Entertainment</a></li>
-              <li class="filter26"><a href="javascript:filterClicked(26);">Sports</a></li>
-              <li class="filter27"><a href="javascript:filterClicked(27);">Health</a></li>
-          </ul>
+        <ul>
+          <li class="filter17"><a href="javascript:filterClicked(17);">Latest First</a></li>
+          <li class="filter16"><a href="javascript:filterClicked(16);">Other News Sites</a></li>
+          <li><strong>Topics:</strong></li>
+          <li class="filter18"><a href="javascript:filterClicked(18);">Top Headlines</a></li>
+          <li class="filter19"><a href="javascript:filterClicked(19);">World</a></li>
+          <li class="filter20"><a href="javascript:filterClicked(20);">Business</a></li>
+          <li class="filter21"><a href="javascript:filterClicked(21);">Nation</a></li>
+          <li class="filter22"><a href="javascript:filterClicked(22);">Science and Technology</a></li>
+          <li class="filter23"><a href="javascript:filterClicked(23);">Elections</a></li>
+          <li class="filter24"><a href="javascript:filterClicked(24);">Politics</a></li>
+          <li class="filter25"><a href="javascript:filterClicked(25);">Entertainment</a></li>
+          <li class="filter26"><a href="javascript:filterClicked(26);">Sports</a></li>
+          <li class="filter27"><a href="javascript:filterClicked(27);">Health</a></li>
+        </ul>
       </div>
-  </div>
+    
+    </div>
+    </div>
+    
+    </div><!-- eof nav  -->
+    
+    <div id="footer">
+      <div id="pagination">
+        <span id="previous" style="display:none;"><a href='javascript:previous();'>Previous</a></span>
+        <span id="pagination_info"></span>
+        <span id="next" style="display:none;"><a href='javascript:next();'>Next</a></span>
+        <br />
+        <a href="https://github.com/xtranophilist/askWhole"> Project Repo</a>
+      </div>
+    </div> 
 
-
-
-</div>
-
-<div id="content">
-<div id="master">
-                
-
-
-                <div style="background-color:#FFFFFF"  id="s2">
-                	<h1 class="styled">Search Accurate, Search fast <br /> <span>Search SMART</span></h2>
-                </div>
-            </div></div>
- <div id="footer">
-    <div id="pagination">
-     <span id="previous" style="display:none;"><a href='javascript:previous();'>Previous</a></span>
-     <span id="pagination_info"></span>
-     <span id="next" style="display:none;"><a href='javascript:next();'>Next</a></span>
-     <br />
-     <a href="https://github.com/xtranophilist/askWhole"> Project Repo</a>
-     </div>
- </div> 
-
-</body>
-</html>
+  </body>
+  </html>

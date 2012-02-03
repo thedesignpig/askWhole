@@ -71,7 +71,7 @@
 }
 
 #filters{width:145px;
-         height:80px; color: #09C; 
+ color: #09C; 
        
          font-family:Arial, Helvetica, sans-serif; font-size:12px;
          z-index: -1; padding-left:34px;
@@ -273,7 +273,7 @@ div.gs-action a.gs-action {
     }
 #master{
 float: left;
-width: 100%;
+margin-left: 220px;
 }
 
 .gs-clusterUrl{
