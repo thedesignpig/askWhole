@@ -13,10 +13,8 @@
 
 #pane {
     position: absolute;
-    left: 0px;
-    top: 0px;
-    width:100%;
-    height:100%;
+    left: 50%;
+    top: 10%;
     text-align:center;
     z-index: 1000;
 }
@@ -25,24 +23,33 @@
     margin: 100px auto;
     text-align:center;
     overflow: auto;
-    background-color: #CCDDFF;
-    border: 1px solid #333;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
+    background-color: #ccc;
+    padding:4px;
+    border: 1px solid #ddd;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius:12px;
+    box-shadow: 0px 0px 8px #333;
+    -moz-box-shadow: 0px 0px 8px #333;
+    -webkit-box-shadow: 0px 0px 8px #333;
 }
 
 #closeButton{
     font: 13px/20px sans-serif;
-    text-decoration: none;
     color: red;
     outline:none;
     float: right;
     margin:2px;
-    border: 2px solid #AAAAAA;
+    background: url(images/close_button.gif) no-repeat center;
+    display:block;
+    height:24px;
+    width:24px;
 }
 
 #paneTitle{
-    border-bottom :1px solid;
+color: #333333;
+font-size: 14px;
+text-shadow: 1px 1px 0 #EEEEEE;
 }
 
 /* google search styles */
@@ -95,16 +102,17 @@
     list-style:none;
 }
 
-.gsc-result { background-color:#E8EBF0;
-              margin-top:10px;
-              margin-bottom: 10px;
-              margin-left: 15px;
-              margin-right:15px;
-              border: #ccc solid thin;
-              -moz-border-radius: 5px;
-              -webkit-border-radius: 5px;
-              border-radius: 5px;
-              padding:8px;
+.gsc-result {
+background-color:#E8EBF0;
+margin-top:10px;
+margin-bottom: 10px;
+margin-left: 15px;
+margin-right:15px;
+border: #ccc solid thin;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+padding:8px;
 
 }
 
@@ -216,7 +224,7 @@ div.gs-action a.gs-action {
 #menu{
     text-align:center;
     margin : 40px 0 0;
-    border-bottom:#ccc 1px solid;
+    border-bottom:#999 1px solid;
     padding: 4px;
     clear: both;
 
@@ -254,7 +262,7 @@ div.gs-action a.gs-action {
 #menu li a:visited,#menu li.selected a{
     background: #fff;
     color: #333;
-    border : 1px solid #ccc;
+    border : 1px solid #999;
     border-bottom:1px solid #fff;
 }
 
