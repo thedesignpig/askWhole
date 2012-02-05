@@ -7,202 +7,9 @@
   <link rel="stylesheet" type="text/css" href="source.css" />
   <script type="text/javascript" src="http://www.google.com/jsapi"> </script>
   <script type="text/javascript" src="base.js"> </script>
-  <style>
-  body:before {
-      content: "";
-      float: left;
-      height: 100%;
-      margin-top: -32767px;
-      width: 0;
-  }
-  html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-  }
-  header
-  {
-    height: 50px;
-    margin-bottom: 10px;
-    text-align: center;
-    width:100%;
-     padding: 20px 0;
-  }
-  #top_wrapper{
-    margin: 0 auto;
-    width: 680px;
-  }
-  #top_wrapper a,#top_wrapper input,#top_wrapper form{
-    float: left;
-  }
-  #srcdiv form{
-
-    padding: 6px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-    margin: 0 10px;
-    background: none repeat scroll 0 0 #FFFFFF;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 0 0 4px #EEEEEE inset, 0 0 1px #333333;
-  }
-  #srcdiv form .search-field{
-    font-size: 1.2em;
-    width: 350px;
-    padding: 4px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px solid #999;
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0)), color-stop(30%, rgba(255,255,255,0)), color-stop(50%, rgba(0,0,0,0)), to(rgba(0,0,0,0.1)));
-    background: -moz-linear-gradient(bottom, rgba(255,255,255,0), rgba(255,255,255,0) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1));
-    background: -webkit-linear-gradient(bottom, rgba(255,255,255,0), rgba(255,255,255,0) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1));
-    background: linear-gradient(bottom, rgba(255,255,255,0), rgba(255,255,255,0) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1));
-    text-shadow: 0 1px 0 rgba(255,255,255,0.8) !important;
-    -moz-box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
-    -webkit-box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
-    box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
-
-  }
-  #srcdiv form .search-field:hover{
-    background-color: #f9f9f9;
-    border: 1px solid #777;
-  }
-  #srcdiv form .search-field:focus{
-    background-color: #fefefe;
-    border: 1px solid #666;
-  }
-  #sm{
-    text-shadow: 1px 1px 1px #333333;
-    font-weight:bold;
-    margin: 0 4px;
-    padding: 7px 10px;
-    height: 33px;
-    position:relative;
-    font-family: 'Open Sans', sans-serif;
-    font-size:12px;
-    text-decoration:none;
-    color:#fff;
-    border: 1px solid rgba(0,0,0,0.2);
-    border-bottom-color: rgba(0,0,0,0.4);
-    -moz-box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
-    -webkit-box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
-    box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
-    color: #fff !important;
-    cursor: pointer;
-
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.1)), color-stop(49%, rgba(255,255,255,0.05)), color-stop(51%, rgba(0,0,0,0.05)), to(rgba(0,0,0,0.1)));
-    background: -moz-linear-gradient(top, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 49%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.1));
-    background: -webkit-linear-gradient(top, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 49%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.1));
-    background: linear-gradient(top, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 49%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.1));
-    background: none repeat scroll 0 0 #2954A9;
-  }
-  #sm:hover{
-    background:#222;
-  }
-  #nav
-  {
-    float: left;
-    margin-bottom: 10px;
-    width: 220px;
-  }
-
-  #content
-  {
-    float:left;
-    width: 100%;
-  }
-
-  #footer
-  {
-    clear: both;
-    height: 50px;
-
-    margin-bottom: 10px;
-  }
-  #nav ul{
-    list-style:none;
-    margin: 0;
-    padding: 0;
-
-  }
-  #nav ul li{
-    padding: 2px 4px;
-    border-bottom: 1px solid #CCCCCC;
-  }
-  #nav ul li a{
-    display: block;
-    padding: 8px 4px;
-    font-size:1.2em;
-  }
-  #nav ul li a:hover{
-    text-align: right;
-  }
-  #nav select{
-    margin:4px 0px;
-  }
-  a{
-    color:#07287F;
-    text-decoration: none;
-    outline:none;
-  }
-  a img{
-    border: none;
-    outline: none;
-  }
-  h1.styled{
-    color:#999;
-    text-align: center;
-    font-size:1.8em;
-    text-shadow: 1px 1px 0 #F2F2F2, 1px 2px 0 #B1B1B2;
-    font-family:'Times New Roman';
-    font-weight:normal;
-  }
-
-  #nav li strong{
-    text-shadow: 1px 1px 0 #F2F2F2, 1px 2px 0 #B1B1B2;
-    color: #333;
-    font-size: 1.2em;
-    padding: 6px 0;
-    display:block;
-  }
-  #footer{
-    text-align: center;
-    clear: both;
-    width: 100%;
-  }
-  #content_wrapper{
-    float:left;
-    width:100%;
-  }
-  #static-info{
-    padding-right: 220px;
-       text-align: center;
-  }
-  #fluid-container{
-    height: auto !important;
-  }
-  #inner-wrap{
-    overflow: auto;
-  }
-  #main-container{
-    height:100%;
-    overflow:hidden;
-  }
-  .askwhole-info{
-    text-align:center;
-  }
-  </style>
 </head>
 <body>
-  
+
   <div id="pane" style="display:none;">
     <div id="paneContent">
       <span id="paneTitle">
@@ -215,7 +22,7 @@
     </div>
   </div>
   <div id="paneBackground" style="display:none;"></div>
-  
+
   <header>
     <div id="top_wrapper">
       <a href="index.html" ><img src="images/askwhole.png" /></a>
@@ -231,7 +38,7 @@
       </div>
     </div>
   </header>
-  
+
   <ul id="menu">
     <li id="tab1" class=""><a href="javascript:void(0)" onClick="javascript:tabClicked(1);return false;">Web</a></li>
     <li class="" id="tab2"><a href="javascript:void(0)" onClick="javascript:tabClicked(2);return false;">Images</a></li>
@@ -248,9 +55,9 @@
   <div id="fluid-container">
     <div id="inner-wrap">
     <div id="main-container">
-    
+
     <div id="nav">
-      
+
       <div id="filters">
         <div id="tab1_filters" class="filters">
           <ul>
@@ -391,37 +198,37 @@
           <li class="filter27"><a href="javascript:filterClicked(27);">Health</a></li>
         </ul>
       </div>
-    
+
     </div>
-    
+
     </div><!-- eof nav  -->
-    
+
     <div id="master">
 
       <div style="background-color:#FFFFFF"  id="s2" class="innertube">
-       
+
        <div id="static-info">
           <img src="images/askwhole-art.jpg" />
           <h1 class="styled">askWhole is a cool, intelligent and fast web search application that utilizes the power of Google!</h2>
         </div>
       </div>
-        
-    </div>
-    
-  </div>
-  </div>
-  </div>
-  </div>
-  
 
-    
+    </div>
+
+  </div>
+  </div>
+  </div>
+  </div>
+
+
+
     <div id="footer">
       <div id="pagination">
         <span id="previous" style="display:none;"><a href='javascript:previous();'>Previous</a></span>
         <span id="pagination_info"></span>
         <span id="next" style="display:none;"><a href='javascript:next();'>Next</a></span>
         <br />
-        
+      </div>
         <table class="askwhole-info" align="center">
           <tr>
             <th>Project Repo</th>
@@ -430,20 +237,27 @@
           </tr>
         <tr>
         <td>
-           <a href="https://github.com/xtranophilist/askWhole"> <img src="images/github-white.png" height="32" />/askWhole</a> <br />
+           <a href="https://github.com/xtranophilist/askWhole"> <img src="images/github-white.png" height="32" /><span>askWhole</span></a> <br />
           <!--<img src="images/powered_by_google.gif" />-->
         </td>
         <td>
-          <a href="twitter.com/xtranophilist"><img src="images/twitter-bird.png"></a>
+          <a href =""><img src="images/facebook.png" /> </a>
+          <a href =""><img src="images/twitter.png" /> </a>
+           <a href =""><img src="images/gplus.png" /> </a>
+              <a href =""><img src="images/digg.png" /> </a>
+          <a href =""><img src="images/delicous.png" /> </a>
+          <a href =""><img src="images/stumbleupon.png" /> </a>
+
         </td>
         <td>
-        <a href="twitter.com/xtranophilist"><img src="images/twitter-bird.png" height="28">xtranophilist</a>  <br />
-        <a href="twitter.com/roxxy.poxxy"><img src="images/twitter-bird.png" height="28">roxxy.poxxy</a>  
+        <a href="http://twitter.com/xtranophilist"><img src="images/twitter-bird.png" height="22"><span>xtranophilist</span></a>  <br />
+        <a href="http://twitter.com/roxxy.poxxy"><img src="images/twitter-bird.png" height="22"><span>roxxy.poxxy</span></a>
         </td>
         </tr>
         </table>
-      </div>
-    </div> 
+
+    </div>
 
   </body>
   </html>
+
