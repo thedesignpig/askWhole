@@ -9,6 +9,8 @@
  *8 News
  */
 
+ var search_holder=true;
+
 Element.prototype.hasClass=hasClass;
 Element.prototype.addClass=addClass;
 Element.prototype.removeClass=removeClass;
@@ -850,14 +852,16 @@ function doSearch() {
     //the search execution
     searchControl.setSearchCompleteCallback(this, searchComplete, null);
     searchControl.setNoResultsString("No Results for the query!");
-    
-    searchControl.draw(document.getElementById("s2"));
+    console.log("s_"+search_holder);
+     
+    searchControl.draw($("s_"+search_holder));
+
     
     searchControl.execute(getSearchQuery());
     //searchControl.gotoPage(3);
     
 
-    setTimeout("document.getElementById('sm').style.backgroundImage='';", 1000);
+    //setTimeout("document.getElementById('sm').style.backgroundImage='';", 1000);
 //setTimeout("document.getElementById('sm').value='Search Again!';", 1000);
 }
 
@@ -1063,6 +1067,8 @@ function modify() {
 
 function searchComplete(searchControl, srchr) {
     searcher=srchr;
+    //search_holder=!search_holder;
+    //$("s_"+search_holder).innerHTML='';
     doLog("Search complete!");
     //doLog(searchControl1);
     //if(!searcher.cursor) return;
@@ -1071,8 +1077,8 @@ function searchComplete(searchControl, srchr) {
         var n = searcher.cursor.estimatedResultCount;
         if (n > 5000) str = "Around ";
         str+=n + " results";
-        if (typeof searcher.cursor.searchResultTime!='undefined') str+=" ("+searcher.cursor.searchResultTime+" seconds)";
-        document.getElementById('no').innerHTML=str;
+        if (typeof searcher.cursor.searchResultTime!='undefined') str+="<br />("+searcher.cursor.searchResultTime+" seconds)";
+        $('result_stat').innerHTML=str;
         //document.getElementById('no').style.background='url(result.png) no-repeat';
         for (var i = 0; i < searcher.results.length; i++) {
             rez[i] = searcher.results[i];
@@ -1085,7 +1091,7 @@ function searchComplete(searchControl, srchr) {
         modify();
     }
     else {
-        document.getElementById('no').innerHTML = "";
+        $('result_stat').innerHTML = "";
     }
 }
 
