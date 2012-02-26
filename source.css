@@ -325,39 +325,6 @@ header
     
 }
 
-#sm{
-    text-shadow: 1px 1px 1px #333333;
-    font-weight:bold;
-    margin: 0 4px;
-    padding: 7px 10px;
-    height: 33px;
-    position:relative;
-    font-family: 'Open Sans', sans-serif;
-    font-size:12px;
-    text-decoration:none;
-    color:#fff;
-    border: 1px solid rgba(0,0,0,0.2);
-    border-bottom-color: rgba(0,0,0,0.4);
-    -moz-box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
-    -webkit-box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
-    box-shadow: inset 0 0.0625em 0 rgba(255,255,255,0.4), inset 0 0 0.0625em rgba(255,255,255,0.6), 0 0.0625em 0 rgba(255,255,255,0.3);
-    color: #fff !important;
-    cursor: pointer;
-
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.1)), color-stop(49%, rgba(255,255,255,0.05)), color-stop(51%, rgba(0,0,0,0.05)), to(rgba(0,0,0,0.1)));
-    background: -moz-linear-gradient(top, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 49%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.1));
-    background: -webkit-linear-gradient(top, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 49%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.1));
-    background: linear-gradient(top, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 49%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.1));
-    background: none repeat scroll 0 0 #2954A9;
-}
-#sm:hover{
-    background:#222;
-}
 #nav
 {
     float: left;
@@ -410,14 +377,6 @@ a{
 a img{
     border: none;
     outline: none;
-}
-h1.styled{
-    color:#999;
-    text-align: center;
-    font-size:1.4em;
-    text-shadow: 1px 1px 0 #F2F2F2, 1px 2px 0 #B1B1B2;
-    font-family:Arial;
-    font-weight:bold;
 }
 
 #nav li strong{
@@ -473,7 +432,7 @@ h1.styled{
     border: 0 none;
     font: bold 13px Arial,Helvetica,Sans-serif;
     color: #d7d7d7;
-     border: 1px solid #999;
+    border: 1px solid #999;
     width:150px;
     padding: 6px 15px 6px 35px;
     -webkit-border-radius: 20px;
@@ -492,6 +451,5 @@ h1.styled{
     background: url(images/search-dark.png) no-repeat 10px 6px #fcfcfc;
     color: #6a6f75;
     width: 200px;
-   
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
     }
