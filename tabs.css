@@ -1,61 +1,62 @@
 #tab-menu-container {
-	font-size:13px;
-	height:20px;
-        margin-left: 220px;
-        border-bottom: 1px solid #D5D5D5;
-        margin-top: 27px;
-        
+font-size:13px;
+height:20px;
+clear: both;
+    border-bottom: 1px solid #D5D5D5;
+ background-color: #eaeaea;
+    margin-top: 45px;
+padding-left: 220px;
+    
 }
 
 #tab-menu {
-	padding:1px 0 2px 0;
-	margin:0;
+padding:1px 0 2px 0;
+margin:0;
 }
 
 #tab-menu li {
-	float:left;
-	list-style:none
+float:left;
+list-style:none
 }
 
 #tab-menu li a {
-	background:#f3f3f3;
-	color:#333;
-	padding:6px 10px 4px;
-	border-top:1px solid #d5d5d5;
-	border-right:1px solid #d5d5d5;
+background:#f3f3f3;
+color:#333;
+padding:6px 10px 4px;
+border-top:1px solid #d5d5d5;
+border-right:1px solid #d5d5d5;
 }
 #tab-menu li:first-child a{
-  border-left: 1px solid #d5d5d5;
-  border-radius: 4px 0 0 0;
+border-left: 1px solid #d5d5d5;
+border-radius: 4px 0 0 0;
 }
 #tab-menu li:last-child a{
-  border-right : 1px solid #d5d5d5;
-  border-radius: 0 4px 0 0;
+border-right : 1px solid #d5d5d5;
+border-radius: 0 4px 0 0;
 
 }
 
 #tab-menu li.selected a {
-	background:#fff;
-	color:#222;
-	padding:6px 10px 4px;
-	border-top:1px solid #d5d5d5;
-	border-left:1px solid #d5d5d5;
-	border-right:1px solid #d5d5d5;
-	border-bottom:1px solid #fff;
-	-webkit-border-radius:4px 4px 0 0;
-	border-radius:4px 4px 0 0
+background:#fff;
+color:#222;
+padding:6px 10px 4px;
+border-top:1px solid #d5d5d5;
+border-left:1px solid #d5d5d5;
+border-right:1px solid #d5d5d5;
+border-bottom:1px solid #fff;
+-webkit-border-radius:4px 4px 0 0;
+border-radius:4px 4px 0 0
 }
 
 #tab-menu li a:hover {
-	background:#fafafa;
-	color:#fff;
-	border-bottom: 1px solid #d5d5d5
+background:#fafafa;
+color:#fff;
 }
 
 #tab-menu>li>a:hover {
-	color:#222;
-	background:#ececec
+color:#222;
+background:#ececec
 }
 #tab-menu>li.active>a:hover {
-	background:#fff;
+background:#fff;
 }

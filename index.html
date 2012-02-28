@@ -12,7 +12,6 @@
 </head>
 
 <body>
-    <a href="http://github.com/xtranophilist/askWhole"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
 
   <div id="pane" style="display:none;">
     <div id="paneContent">
@@ -34,11 +33,10 @@
         <form  id="srch" name="srch" onSubmit="javascript:loadTab(0);return false;" action="">
           <input type="text" name="s" onfocus="window.inTextBox = true;"  onclick="if (this.value=='put search terms here') {this.value='';this.style.color='#222222';}" onblur="window.inTextBox = false;" onKeyUp="triggerSearch(event);" class="search-field"/>
         </form>
-        <span id="no"></span>
+      
         <span id="test"></span>
       </div>
     </div>
-  </header>
 
   <div id="tab-menu-container">
   <ul id="tab-menu">
@@ -53,13 +51,17 @@
   </ul>
   </div>
 
+  </header>
+
+
+
 
   <div id="fluid-container">
     <div id="inner-wrap">
     <div id="main-container">
 
     <div id="nav">
-
+      <div id="result_stat"></div>
       <div id="filters">
         <div id="tab1_filters" class="filters">
           <ul>
@@ -207,8 +209,9 @@
 
     <div id="master">
 
-      <div style="background-color:#FFFFFF"  id="s2" class="innertube">
-      </div>
+      <div style="background-color:#FFFFFF"  class="search_holder innertube" id="s_true">
+        </div>
+        <!--<div style="background-color:#FFFFFF"  class="search_holder innertube" id="s_false"></div> -->
         
          <div id="pagination">
         <span id="previous" style="display:none;"><a href='javascript:previous();'>Previous</a></span>
@@ -224,7 +227,7 @@
 
           <a href =""><img src="images/facebook.png" /> </a>
           <a href =""><img src="images/twitter.png" /> </a>
-          <a href =""><img src="http://www.google.com/images/icons/product/gplus-16.png" /> </a>
+          <a href =""><img src="images/gplus.png" /> </a>
           <a href =""><img src="images/digg.png" /> </a>
           <a href =""><img src="images/delicious.png" /> </a>
           <a href =""><img src="images/stumble.png" /> </a>

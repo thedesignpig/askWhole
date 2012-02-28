@@ -8,15 +8,17 @@
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 9;
+    z-index: 101;
 }
 
 #pane {
     position: absolute;
     text-align:center;
+    z-index:102;
     overflow: auto;
     background-color: #ccc;
     padding:4px;
+    right: 12%;
     border: 1px solid #ddd;
     -moz-border-radius: 12px;
     -webkit-border-radius: 12px;
@@ -84,22 +86,23 @@ a,input,a:focus,input:focus{
 .gs-visibleUrl-short{display:none;}
 .gs-title{display: list-item;
           overflow: hidden;}
-.gs-snippet{display: list-item;}
+.gs-snippet{display: list-item; color: #333;}
 .gsc-adBlockNoHeight{display:none;}
 
 .gsc-control div {
     position: static;
 }
 
-#s2{
-    margin-top:20px;
+.search_holder{
+    margin-top:15px;
+    margin-bottom:10px;
     font-family: Arial, sans-serif;
     font-size : 13px;
     list-style:none;
 }
 
 .gsc-result {
-    background-color:#E8EBF0;
+    background-color:#f8f8f8;
     margin-top:10px;
     margin-bottom: 10px;
     margin-left: 15px;
@@ -186,8 +189,9 @@ div.gs-action a.gs-action {
 #filters{
     color: #09C;
     font-family:Arial, Helvetica, sans-serif; font-size:12px;
-    z-index: -1;
     padding-left:34px;
+    position: fixed;
+width: 187px;
 
 }
 #filters ul li{
@@ -274,29 +278,10 @@ div.gs-action a.gs-action {
     border-bottom:1px solid #fff;
 }
 
-#s1{
-    position:relative;
-    float:left;
-    margin-top:0px;
+#master{
+    margin: 0 0 0 220px;
 }
 
-#s2{
-    margin-bottom:10px;
-}
-#no{
-    float: left;
-    margin: 10px;
-}
-#master{
-    margin: 0 0 0 200px;
-}
-body:before {
-    content: "";
-    float: left;
-    height: 100%;
-    margin-top: -32767px;
-    width: 0;
-}
 html, body {
     height: 100%;
     margin: 0;
@@ -305,15 +290,20 @@ html, body {
 }
 header
 {
-    height: 50px;
     margin-bottom: 10px;
     text-align: center;
     width:100%;
-    padding: 20px 0;
+    padding: 0;
+     background-color: #eaeaea;
+     top:0;
+     position: fixed;
+     z-index:100;
+
 }
 #top_wrapper{
     margin: 0 auto;
-    width: 690px;
+    width: 780px;
+    padding-bottom: 10px;
 }
 #top_wrapper a,#top_wrapper input,#top_wrapper form{
     float: left;
@@ -321,8 +311,8 @@ header
 #srcdiv form{
 
     padding: 2px 12px;
-    margin: 10px;
-    
+    margin: 6px;
+    width: 200px;
 }
 
 #nav
@@ -400,6 +390,7 @@ a img{
 }
 #fluid-container{
     height: auto !important;
+    margin-top: 75px;
 }
 #inner-wrap{
     overflow: auto;
@@ -418,20 +409,30 @@ a img{
 
 .askwhole-info a img{
     margin: 0px 4px;
+    opacity: .8;
+    -moz-opacity: .8;
+    filter:alpha(opacity=.88);
+}
+.askwhole-info a img:hover{
+opacity: 1;
+-moz-opacity: 1;
+filter:alpha(opacity=1);
 }
 
 #pagination{
     margin:10px auto 40px auto;
     text-align: center;
+    padding-right: 220px;
+    font-size: 13px;
 }
 #pagination_info{
     color: #999}
 
 #srch input[type="text"] {
-    background: url(images/search-dark.png) no-repeat 10px 6px #cccccc;
+    background: url(images/search-dark.png) no-repeat 10px 6px #eee;
     border: 0 none;
     font: bold 13px Arial,Helvetica,Sans-serif;
-    color: #d7d7d7;
+    color: #6a6f75  ;
     border: 1px solid #999;
     width:150px;
     padding: 6px 15px 6px 35px;
@@ -453,3 +454,13 @@ a img{
     width: 200px;
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
     }
+span.links a{
+    font-size:11px;
+}
+#result_stat{
+     height: 26px;
+    padding: 10px 5px;
+    text-align: right;
+      font-size: 12px;
+    color: #333;
+}
