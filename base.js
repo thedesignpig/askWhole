@@ -566,7 +566,7 @@ function loadFilter() {
     //set new filter to have selected class
     getElementsByClass('filter' + f, 'li')[0].addClass('selectedFilter');
     //and finally trigger the search
-    if (getSearchQuery()) callSearch();
+    if (getSearchQuery()) triggerSearch();
 }
 
 //function keyUp(e) {
@@ -852,7 +852,6 @@ function doSearch() {
     //the search execution
     searchControl.setSearchCompleteCallback(this, searchComplete, null);
     searchControl.setNoResultsString("No Results for the query!");
-    console.log("s_"+search_holder);
      
     searchControl.draw($("s_"+search_holder));
 
