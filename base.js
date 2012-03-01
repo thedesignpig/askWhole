@@ -394,7 +394,12 @@ var filters=["null","blogs","imghosts","morevids","funnyvids","mp3","guitartabs"
 //array for results;
 var rez;
 //assign key listening job to returnKey method
-window.addEventListener('keydown', returnKey, false)
+if (window.addEventListener) {  
+  window.addEventListener('keydown', returnKey, false) 
+} else if (window.attachEvent)  {  
+  window.attachEvent('keydown', returnKey);  
+}
+
 
 
 //core methods
@@ -417,9 +422,19 @@ function init() {
     }else{
         //stupid old mechanism for polling the hash every 1/5th of a second
         window.hash0=window.location.hash;
-        window.addEventListener('load', function(){
-            setInterval('trackHash()', 200);
-        }, false);
+        if (window.addEventListener) {  
+         
+          window.addEventListener('load', function(){
+               setInterval(trackHash, 200);
+           }, false);
+            
+        } else if (window.attachEvent)  {  
+          window.attachEvent('onload', 
+          function(){
+               setInterval(trackHash, 200);
+           });  
+        }
+ 
     }
     readState();
     loadTab();
